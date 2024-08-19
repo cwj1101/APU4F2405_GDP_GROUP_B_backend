@@ -1,0 +1,21 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+flask = "==3.0.3"
+flask-cors = "==3.0.10"
+keras = "==3.4.1"
+numpy = "==1.26.4"
+pandas = "==2.2.2"
+psycopg2-binary = "==2.9.9"
+pyjwt = "==2.8.0"
+python-dotenv = "==1.0.1"
+requests = "==2.32.3"
+scipy = "==1.14.0"
+
+[dev-packages]
+
+[requires]
+python_version = "3.11"
