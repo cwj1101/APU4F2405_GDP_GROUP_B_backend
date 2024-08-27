@@ -85,8 +85,8 @@ def inverse_preprocessy(y_normalized, pow_train_min, pow_train_max):
     return y_normalized * (pow_train_max - pow_train_min) + pow_train_min
 
 
-new_data = deque([{"temperature": 31.9}, {"temperature": 30.9}, {"temperature": 32.1}, {"temperature": 32.0},
-                  {"temperature": 31.5}], maxlen=5)
+new_data = deque([{"temperature": 27.9}, {"temperature": 28.9}, {"temperature": 28.1}, {"temperature": 30.0},
+                  {"temperature": 26.5}], maxlen=5)
 
 
 def run_temperature_ai(temp_new, user_id, model):

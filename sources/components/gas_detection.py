@@ -2,7 +2,6 @@ from flask import jsonify, Blueprint, request, session
 from DB_connection import get_db_connection
 from sources.scripts.gas_script import CREATE_GAS_DETECTION_TABLE, CREATE_GAS_DETECTION_PARTITION_TABLE, \
     INSERT_GAS_DETECTION, SELECT_GAS_DATA_BY_DATE, SELECT_TEMPERATURE_AI, SELECT_GAS_DATA_5_MIN_INTERVAL
-# from. import latest_data  # Import the global latest_data
 
 gas_detection = Blueprint('gas_detection', __name__)
 
@@ -68,10 +67,10 @@ def insert_table_gas_detection(response):
     temperature = data.get("temperature")
     humidity = data.get("humidity")
     dallas_temp = data.get("DallasTemp")
-    mq2_alert = data.get("mq2_alert")
-    mq3_alert = data.get("mq3_alert")
-    mq5_alert = data.get("mq5_alert")
-    mq9_alert = data.get("mq9_alert")
+    mq2_alert = data.get("Beep1")
+    mq3_alert = data.get("Beep2")
+    mq5_alert = data.get("Beep3")
+    mq9_alert = data.get("Beep4")
 
     conn = get_db_connection()
     with conn.cursor() as cursor:
@@ -91,8 +90,8 @@ def select_data_5min_interval():
             data = request.get_json()
             start_date = data.get("timestamp")
             end_date = data.get("timestamp")
-            print(f"this is data {data}")
-            print(f"this is time {data}")
+            # print(f"this is data {data}")
+            # print(f"this is time {data}")
             conn = get_db_connection()
             with conn.cursor() as cursor:
                 cursor.execute(SELECT_GAS_DATA_5_MIN_INTERVAL, (start_date, end_date))

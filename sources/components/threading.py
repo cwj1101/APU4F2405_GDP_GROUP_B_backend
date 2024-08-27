@@ -68,12 +68,12 @@ def thermal_data(app):
 def start_background_threads(app):
     global data_thread_1, data_thread_2, data_thread_3
     print(f"this user data {global_user_id}")
-    # data_thread_1 = Thread(target=temp_ai_thread, args=(app,))
-    # data_thread_1.start()
-    # data_thread_2 = Thread(target=gas_module, args=(app,))
-    # data_thread_2.start()
-    # data_thread_3 = Thread(target=thermal_data, args=(app,))
-    # data_thread_3.start()
+    data_thread_1 = Thread(target=temp_ai_thread, args=(app,))
+    data_thread_1.start()
+    data_thread_2 = Thread(target=gas_module, args=(app,))
+    data_thread_2.start()
+    data_thread_3 = Thread(target=thermal_data, args=(app,))
+    data_thread_3.start()
 
 
 def stop_background_threads():
